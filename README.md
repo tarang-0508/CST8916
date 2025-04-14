@@ -11,3 +11,13 @@ These sensors capture vital environmental metrics such as:
 - Surface Temperature (°C) : Measures the status between ice preservation and the beginning of its melting process.
 - Snow Accumulation (cm) : Ice thickness determines the accumulation of snow that creates hazardous conditions for vision and safety on the ice.
 - External Temperature (°C) : Weather conditions create the contextual framework that challenges ice structural stability.
+
+ ## System Architecture
+
+- **IoT Sensors:**  A Python script operates three virtual sensor positions at Dow’s Lake, Fifth Avenue, and NAC while generating environmental measurements of ice thickness and surface temperature and snow accumulation as well as external temperature at 10-second intervals.
+- **Azure IoT Hub:** The system serves as the communication gateway between simulated devices and cloud infrastructure for obtaining their transmitted data. The system registers devices which transmit their data through secure protocols.
+- **Azure Stream Analytics:** This application receives real-time data through the IoT Hub. It operates on the information by executing 5-minute average computations for ice thickness and maximum snow levels then delivers the results. The solution receives information through the IoT Hub while it aggregates data within 5-minute periods to generate statistical outcomes about ice thickness and snow accumulation before producing results.
+- **Azure Blob Storage:** The system uses JSON format to store processed data organized through dates and times in structured format. The calculated data gets stored in a structured JSON format by date and time to establish itself as a data lake that supports analysis.
+
+
+  
