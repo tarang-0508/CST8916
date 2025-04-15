@@ -18,6 +18,30 @@ These sensors capture vital environmental metrics such as:
 - **Azure IoT Hub:** The system serves as the communication gateway between simulated devices and cloud infrastructure for obtaining their transmitted data. The system registers devices which transmit their data through secure protocols.
 - **Azure Stream Analytics:** This application receives real-time data through the IoT Hub. It operates on the information by executing 5-minute average computations for ice thickness and maximum snow levels then delivers the results. The solution receives information through the IoT Hub while it aggregates data within 5-minute periods to generate statistical outcomes about ice thickness and snow accumulation before producing results.
 - **Azure Blob Storage:** The system uses JSON format to store processed data organized through dates and times in structured format. The calculated data gets stored in a structured JSON format by date and time to establish itself as a data lake that supports analysis.
+  
+
+![Image](https://github.com/user-attachments/assets/4a0fe9ed-73ba-44ff-bfc6-be82f18256dd)
+
+## Implementation Details
+
+### IoT Sensor Simulation
+A Python script simulates environmental data from three canal locations: **Dow's Lake**, **Fifth Avenue**, and **NAC**. Each device sends the following metrics every 10 seconds:
+- Ice Thickness (cm): Measures safety of ice for skating.
+- Surface Temperature (°C): Helps detect potential melting.
+- Snow Accumulation (cm): Affects ice insulation and surface condition.
+- External Temperature (°C): Adds broader weather context.
+
+Sample JSON payload:
+```json
+{
+  "location": "Dow's Lake",
+  "iceThickness": 27,
+  "surfaceTemperature": -1,
+  "snowAccumulation": 8,
+  "externalTemperature": -4,
+  "timestamp": "2024-11-23T12:00:00Z"
+}
+
 
 
   
